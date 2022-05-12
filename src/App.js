@@ -1,6 +1,7 @@
 import './App.css';
 import {connect} from "react-redux";
 import {useState} from "react";
+import Counter from "./Counter";
 
 
 function App(props) {
@@ -25,17 +26,18 @@ function App(props) {
                     </h2>
                     {todo.done ?
                         <button onClick={() => props.openUpdateCancel(todo.id)}>update Task</button>
-                    :
-                    <div>
-                        <input value={updateTodo} onChange={event => setUpdateTodo(event.target.value)}/>
-                        <button onClick={() => props.updateSave(todo.id, updateTodo)}>save</button>
-                        <button onClick={() => props.openUpdateCancel(todo.id)}>cancel</button>
-                    </div>
+                        :
+                        <div>
+                            <input value={updateTodo} onChange={event => setUpdateTodo(event.target.value)}/>
+                            <button onClick={() => props.updateSave(todo.id, updateTodo)}>save</button>
+                            <button onClick={() => props.openUpdateCancel(todo.id)}>cancel</button>
+                        </div>
                     }
                     <button onClick={() => props.deleteTodo(todo.id)}>delete</button>
                 </div>
             )}
-
+            <hr/>
+            <Counter />
         </div>
     );
 }
