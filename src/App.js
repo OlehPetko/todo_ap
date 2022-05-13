@@ -2,6 +2,7 @@ import './App.css';
 import {connect} from "react-redux";
 import {useState} from "react";
 import Counter from "./Counter";
+import CounteRedux from "./CounteRedux";
 
 
 function App(props) {
@@ -38,6 +39,8 @@ function App(props) {
             )}
             <hr/>
             <Counter />
+            <hr/>
+            <CounteRedux />
         </div>
     );
 }

@@ -5,6 +5,11 @@ const initialState = {
         {id: Math.random(), title: 'Vancouver', done: true},
         {id: Math.random(), title: 'Toronto', done: true},
         {id: Math.random(), title: 'San-francisco', done: true},
+    ],
+    counter: [
+        {id: Math.random(), task: 1},
+        {id: Math.random(), task: 2},
+        {id: Math.random(), task: 3},
     ]
 }
 const tasks = (state = initialState, action) => {
@@ -29,6 +34,13 @@ const tasks = (state = initialState, action) => {
                     done: !el.done,
                     title: action.payload.updateTodo
                 } : el)
+            }
+        case 'PLUS_MINUS':
+            return {
+                ...state, counter: state.counter.map(el => el.id === action.payload.taskId ? {
+                    ...el, task: el.task + action.payload.taskValue
+                    } : el
+                )
             }
 
 
